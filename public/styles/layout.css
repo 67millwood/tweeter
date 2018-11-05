@@ -5,6 +5,7 @@
  */
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -22,14 +23,52 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  height: 100%;
 }
 
 .container {
   width: 450px;
+  height: 100%;
   margin: auto;
+  display: flex;
   background-color: white;
-  padding-top: 25px;
+
+
 }
+
+.new-tweet {
+    width: 400px;
+    margin: auto;
+    margin-top: 10px;
+    border: 3px solid grey;
+    border-radius: 10px;
+    background-color: beige;
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+.new-tweet h2 {
+  border-bottom: 1px solid grey;
+
+}
+
+.new-tweet textarea {
+  display: block;
+  margin-bottom: 3px;
+  width: 100%
+}
+
+.new-tweet input {
+  margin-bottom: 2px;
+}
+
+.new-tweet .counter {
+  float: right;
+  margin-bottom: 2px;
+}
+
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
