@@ -30,8 +30,8 @@ body {
   width: 450px;
   height: 100%;
   margin: auto;
-  display: flex;
-  background-color: white;
+/*  display: flex;
+*/  background-color: white;
 
 
 }
@@ -68,7 +68,51 @@ body {
   margin-bottom: 2px;
 }
 
+/* Published tweets */
+.container #pubtweets {
+    width: 400px;
+    margin: auto;
+    margin-top: 10px;
+    border: 3px solid grey;
+    border-radius: 10px;
+    background-color: beige;
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    opacity: 0.5;
+  }
 
+  .container #pubtweets:hover {
+    opacity: 1.0;
+  }
+
+.container #tweet-head {
+    font-size: 1.5em;
+    background-color: burlywood;
+
+  }
+
+#tweet-head-pic {
+  float: left;
+
+  padding-right: 10px;
+}
+
+#tweet-head-text {
+  vertical-align: top;
+}
+
+#tweet-head-user {
+float: right;
+font-size: 0.75em;
+}
+
+#pubtweets span {
+}
+
+#tweet-foot {
+  font-size: 0.75em;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
