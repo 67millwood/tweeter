@@ -27,6 +27,9 @@ $(document).ready(function() {
             </span>
             <footer id="tweet-foot">
               10 days ago.
+              <img class="icons" src="/images/flag.png">
+              <img class="icons" src="/images/retweet.png">
+              <img class="icons" src="/images/heart.jpg">
             </footer>
 
             </article>

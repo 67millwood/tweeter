@@ -88,6 +88,11 @@ body {
     opacity: 1.0;
   }
 
+.container #pubtweets:hover .icons{
+  display: inline;
+  float: right;
+
+}
 .container #tweet-head {
     font-size: 1.5em;
     background-color: burlywood;
@@ -114,6 +119,14 @@ font-size: 0.75em;
 
 #tweet-foot {
   font-size: 0.75em;
+}
+
+.icons {
+  display: none;
+}
+
+
+
 }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

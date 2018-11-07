@@ -11,6 +11,10 @@ $(document).ready(function() {
     $(this).parent().find(".counter").text(140 - count);
   }
 
+  // $("#pubtweets").hover( function () {
+  //   $("#pubtweets").css({"opacity": 0.5})
+  // } );
+
 });
 });
 
