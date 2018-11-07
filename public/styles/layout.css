@@ -30,6 +30,8 @@ body {
   width: 450px;
   height: 100%;
   margin: auto;
+  padding-top: 5px;
+
 /*  display: flex;
 */  background-color: white;
 
