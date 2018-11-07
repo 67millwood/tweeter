@@ -10,13 +10,19 @@ $(document).ready(function() {
     $new_tweet.submit(function (event) {
     console.log('Submit clicked, performing ajax call...');
     event.preventDefault();
-    $.ajax({url: "/tweets/", method: "POST", contentType: 'application/x-www-form-urlencoded; charset=UTF-8', data: $new_tweet.serialize()})
+    $.ajax({
+     url: "/tweets/",
+     method: "POST",
+     data: $new_tweet.serialize(),
+     complete: loadTweets,
+    });
+
     });
 
     //publishes tweets from data set and appends them to the main page (.container)
     function renderTweets(tweets) {
       for (num of tweets) {
-        console.log(num);
+        // console.log(num);
         var $tweet = createTweetElement(num);
         $('.container').append($tweet);
       }
@@ -53,10 +59,21 @@ $(document).ready(function() {
       return todaynum;
     }
 
+    function loadTweets() {
+      $.getJSON("/tweets", function(data) {
+        console.log("fresh tweets")
+        renderTweets(data)
+      });
+    };
+
+
+    loadTweets();
+
+
 
 // var $tweet = createTweetElement(tweetData);
   // $('.container').append($tweet);
-renderTweets(data);
+// renderTweets(data);
 
 // end of doc ready (do not touch)
 });
