@@ -5,6 +5,15 @@
  */
 $(document).ready(function() {
 
+    //tweet submission using AJAX instead of default form
+    var $new_tweet = $('.new-tweet form');
+    $new_tweet.submit(function (event) {
+    console.log('Submit clicked, performing ajax call...');
+    event.preventDefault();
+    $.ajax({url: "/tweets/", method: "POST", contentType: 'application/x-www-form-urlencoded; charset=UTF-8', data: $new_tweet.serialize()})
+    });
+
+    //publishes tweets from data set and appends them to the main page (.container)
     function renderTweets(tweets) {
       for (num of tweets) {
         console.log(num);
@@ -13,6 +22,7 @@ $(document).ready(function() {
       }
     }
 
+    //creates formatted tweets from data
     function createTweetElement(data) {
       let tweetmaker =
           `<section id="pubtweets">
@@ -43,10 +53,12 @@ $(document).ready(function() {
       return todaynum;
     }
 
+
 // var $tweet = createTweetElement(tweetData);
   // $('.container').append($tweet);
 renderTweets(data);
 
+// end of doc ready (do not touch)
 });
 
 
