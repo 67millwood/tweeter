@@ -6,20 +6,28 @@
 $(document).ready(function() {
 
     function createTweetElement(data) {
-      $("#pubtweets #tweet-head-text").text(data.user.name);
-      $("#pubtweets #tweet-head-user").text(data.user.handle);
+      let tweetmaker =
+          `<section id="pubtweets">
+            <article>
+            <header id="tweet-head">
+              <img src=${data.user.avatars.small}>
+              <span id="tweet-head-text">${data.user.name}</span>
+              <span id="tweet-head-user">${data.user.handle}</span>
+            </header>
+            <span id="tweet">
+              ${data.content.text}
+            </span>
+            <footer id="tweet-foot">
+              10 days ago.
+            </footer>
 
-
+            </article>
+          </section>`
+      return tweetmaker;
     };
 
-
   var $tweet = createTweetElement(tweetData);
-
-  // test
-  console.log($tweet);
-  $('#pubtweets').append($tweet);
-
-
+  $('.container').append($tweet);
 
 });
 
