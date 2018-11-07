@@ -26,7 +26,7 @@ $(document).ready(function() {
               ${data.content.text}
             </span>
             <footer id="tweet-foot">
-              10 days ago.
+              ${Math.round(((dateDiff() - data.created_at) / (1000*60*60*24)))} days ago
               <img class="icons" src="/images/flag.png">
               <img class="icons" src="/images/retweet.png">
               <img class="icons" src="/images/heart.jpg">
@@ -36,6 +36,12 @@ $(document).ready(function() {
           </section>`
       return tweetmaker;
     };
+
+    function dateDiff() {
+      var today = new Date();
+      var todaynum = today.getTime();
+      return todaynum;
+    }
 
 // var $tweet = createTweetElement(tweetData);
   // $('.container').append($tweet);
