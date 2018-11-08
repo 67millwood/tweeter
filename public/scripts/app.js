@@ -34,15 +34,19 @@ $(document).ready(function() {
          url: "/tweets/",
          method: "POST",
          data: $new_tweet.serialize(),
-         success: $.getJSON("/tweets/", function(data) {
-          console.log(data);
-          var $happy = createTweetElement(data.slice(-1)[0]);
-          $('.freshtweets').prepend($happy);
-            })
+         success: happyTimes
          });
         }
         });
        };
+
+       function happyTimes() {
+        $.getJSON("/tweets/", function(data) {
+          console.log(data);
+          var $happy = createTweetElement(data.slice(-1)[0]);
+          $('.freshtweets').prepend($happy);
+            })
+       }
 
     //publishes tweets from data set and appends them to the main page (.container)
     function renderTweets(tweets) {
