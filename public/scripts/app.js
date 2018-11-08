@@ -34,7 +34,7 @@ $(document).ready(function() {
          url: "/tweets/",
          method: "POST",
          data: $new_tweet.serialize(),
-         success: publishNewTweet()
+         success: publishNewTweet
          });
         }
         });
