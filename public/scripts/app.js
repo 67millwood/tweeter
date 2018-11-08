@@ -10,25 +10,38 @@ $(document).ready(function() {
     createTweet();
 
 
+
+
+      // $("#nav-bar button").click( => () {
+      //   $( ".new-tweet" ).scroll();
+      // });
+
+
     function createTweet() {
 
         var $new_tweet = $('.new-tweet form');
-        $new_tweet.submit( function (event) {
+        $new_tweet.submit(  function (event) {
          event.preventDefault();
-         if ($new_tweet.serialize().length > 140) {
-          alert("Sorry.  We can't handle that big tweet")
+         if ($new_tweet.serialize().length > 145) {
+          $('#lengthwarn').text("We can't handle that big tweet")
+          $('#lengthwarn').show();
          } else if ($new_tweet.serialize().length < 6) {
-          alert("Tweet cannot be blank")
+          $('#lengthwarn').text("Tweet can't be blank")
+          $('#lengthwarn').show();
          } else {
+          $('#lengthwarn').hide();
          $.ajax({
          url: "/tweets/",
          method: "POST",
          data: $new_tweet.serialize(),
-         // complete: renderTweets(data.pop()))
-
-         })
+         success: $.getJSON("/tweets/", function(data) {
+          console.log(data);
+          var $happy = createTweetElement(data.slice(-1)[0]);
+          $('.freshtweets').prepend($happy);
+            })
+         });
         }
-        }); console.log(data)
+        });
        };
 
     //publishes tweets from data set and appends them to the main page (.container)
@@ -36,7 +49,7 @@ $(document).ready(function() {
       for (num of tweets) {
         // console.log(num);
         var $tweet = createTweetElement(num);
-        $('.container').append($tweet);
+        $('.freshtweets').append($tweet);
       }
     }
 
@@ -76,19 +89,20 @@ $(document).ready(function() {
     //GET tweets from JSON data then call renderTweets to display them to the user
     function loadTweets() {
       $.getJSON("/tweets", function(data) {
-        console.log("fresh tweets", data)
+        // console.log("fresh tweets", data)
         renderTweets(data)
       });
     };
 
-    //call loadTweets so user sees historical tweets in the main screen on start
+    //Styiing for tweet creation
+      $("#nav-bar button").click( function () {
+        $( ".new-tweet" ).slideToggle(400);
+        $( "#newtweet" ).focus();
+      });
 
 
 
 
-// var $tweet = createTweetElement(tweetData);
-  // $('.container').append($tweet);
-// renderTweets(data);
 
 // end of doc ready (do not touch)
 });

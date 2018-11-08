@@ -48,6 +48,7 @@ body {
     padding-top: 3px;
     padding-left: 5px;
     padding-right: 5px;
+    display: none;
   }
 
 .new-tweet h2 {
@@ -61,8 +62,13 @@ body {
   width: 100%
 }
 
+
 .new-tweet input {
   margin-bottom: 2px;
+}
+
+#lengthwarn {
+  color: red;
 }
 
 .new-tweet .counter {
@@ -84,7 +90,7 @@ body {
     opacity: 0.5;
   }
 
-  .container #pubtweets:hover {
+.container #pubtweets:hover {
     opacity: 1.0;
   }
 

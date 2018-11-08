@@ -21,3 +21,16 @@
   font-size: 2em;
   float: left;
 }
+
+#nav-bar button {
+  opacity: 0.5;
+  float: right;
+}
+
+#nav-bar button:hover {
+    opacity: 1.0;
+  }
+
+#nav-bar button:click .new-tweet {
+
+}
