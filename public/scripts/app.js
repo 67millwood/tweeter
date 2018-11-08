@@ -53,6 +53,12 @@ $(document).ready(function() {
       }
     }
 
+    function escape(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+        }
+
     //creates formatted tweets from data
     function createTweetElement(data) {
       let tweetmaker =
@@ -64,7 +70,7 @@ $(document).ready(function() {
               <span id="tweet-head-user">${data.user.handle}</span>
             </header>
             <span id="tweet">
-              ${data.content.text}
+              ${escape(data.content.text)}
             </span>
             <footer id="tweet-foot">
               ${Math.round(((dateDiff() - data.created_at) / (1000*60*60*24)))} days ago
@@ -89,6 +95,7 @@ $(document).ready(function() {
     //GET tweets from JSON data then call renderTweets to display them to the user
     function loadTweets() {
       $.getJSON("/tweets", function(data) {
+        // $('.freshtweets').empty();
         // console.log("fresh tweets", data)
         renderTweets(data)
       });
