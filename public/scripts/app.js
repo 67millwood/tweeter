@@ -6,18 +6,30 @@
 $(document).ready(function() {
 
     //tweet submission using AJAX instead of default form
-    var $new_tweet = $('.new-tweet form');
-    $new_tweet.submit(function (event) {
-    console.log('Submit clicked, performing ajax call...');
-    event.preventDefault();
-    $.ajax({
-     url: "/tweets/",
-     method: "POST",
-     data: $new_tweet.serialize(),
-     complete: loadTweets,
-    });
+    loadTweets();
+    createTweet();
 
-    });
+
+    function createTweet() {
+
+        var $new_tweet = $('.new-tweet form');
+        $new_tweet.submit( function (event) {
+         event.preventDefault();
+         if ($new_tweet.serialize().length > 140) {
+          alert("Sorry.  We can't handle that big tweet")
+         } else if ($new_tweet.serialize().length < 6) {
+          alert("Tweet cannot be blank")
+         } else {
+         $.ajax({
+         url: "/tweets/",
+         method: "POST",
+         data: $new_tweet.serialize(),
+         // complete: renderTweets(data.pop()))
+
+         })
+        }
+        }); console.log(data)
+       };
 
     //publishes tweets from data set and appends them to the main page (.container)
     function renderTweets(tweets) {
@@ -53,21 +65,24 @@ $(document).ready(function() {
       return tweetmaker;
     };
 
+
+    //function used to caluculate the difference in today's date versus the date of tweets
     function dateDiff() {
       var today = new Date();
       var todaynum = today.getTime();
       return todaynum;
     }
 
+    //GET tweets from JSON data then call renderTweets to display them to the user
     function loadTweets() {
       $.getJSON("/tweets", function(data) {
-        console.log("fresh tweets")
+        console.log("fresh tweets", data)
         renderTweets(data)
       });
     };
 
+    //call loadTweets so user sees historical tweets in the main screen on start
 
-    loadTweets();
 
 
 
