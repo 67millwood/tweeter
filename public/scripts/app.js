@@ -5,18 +5,16 @@
  */
 $(document).ready(function() {
 
-    //tweet submission using AJAX instead of default form
+    //loadTweets brings in all the tweets in the MongoDB
+    //createTweet is called so the app is immediately ready to accept and POST new tweets
+
     loadTweets();
     createTweet();
 
 
-
-
-      // $("#nav-bar button").click( => () {
-      //   $( ".new-tweet" ).scroll();
-      // });
-
-
+    //createTweet allows the user to fill in a form to create a new tweet
+    //form validation provides warning messages for blank tweets or tweets longer than140 characters
+    //the validation numbers include the data from the serilaized text (5 characters for 'text=')
     function createTweet() {
 
         var $new_tweet = $('.new-tweet form');
@@ -30,6 +28,9 @@ $(document).ready(function() {
           $('#lengthwarn').show();
          } else {
           $('#lengthwarn').hide();
+          //ajax immediately POSTs the new tweet to the /tweet/ path
+          //new tweets are run through serialize so that they become strings
+          //if a successful POST happens, the app points to the publishNewTweet function to publish the tweet
          $.ajax({
          url: "/tweets/",
          method: "POST",
@@ -40,15 +41,18 @@ $(document).ready(function() {
         });
        };
 
-       function publishNewTweet () {
-        $.getJSON("/tweets/", function(data) {
-          console.log(data);
-          var $happy = createTweetElement(data.slice(-1)[0]);
-          $('.freshtweets').prepend($happy);
-            })
-       }
+    // publishes new tweets by taking the most recent item (last) from the JSON array
+    // then prepends to the .freshtweet class to make it appear at the top of all loaded tweets
+     function publishNewTweet () {
+      $.getJSON("/tweets/", function(data) {
+        console.log(data);
+        var $happy = createTweetElement(data.slice(-1)[0]);
+        $('.freshtweets').prepend($happy);
+          })
+     }
 
-    //publishes tweets from data set and appends them to the main page (.container)
+    //publishes tweets from database by looping through the JSON provided
+    //calls the createTweetElement function which provides the necessary HTML/CSS tags for each tweet
     function renderTweets(data) {
       console.log("we reached renderTweets")
       let tweets = data[0].tweets;
@@ -60,6 +64,7 @@ $(document).ready(function() {
       }
     }
 
+    //escape ensures that text provided from the user (their Tweet) is stripped of any HTML or malicious code
     function escape(str) {
       var div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
@@ -67,6 +72,8 @@ $(document).ready(function() {
         }
 
     //creates formatted tweets from data
+    //relevant data is pulled from the JSON using object literals
+    //returns a fully formatted tweet that is used by renderTweets to create the tweet list
     function createTweetElement(data) {
       let tweetmaker =
           `<section id="pubtweets">
@@ -99,7 +106,7 @@ $(document).ready(function() {
       return todaynum;
     }
 
-    //GET tweets from JSON data then call renderTweets to display them to the user
+    //GET tweets from mongoDB converts into JSON then call renderTweets to display them to the user
     function loadTweets() {
       $.getJSON("/tweets", function(data) {
         // $('.freshtweets').empty();
@@ -108,7 +115,8 @@ $(document).ready(function() {
       });
     };
 
-    //Styiing for tweet creation
+    //Styiing for tweet creation which hides the compose tweet box until the Compose button is clicked
+    //puts the user cursor into the text area then highlights the box
       $("#nav-bar button").click( function () {
         $( ".new-tweet" ).slideToggle(400);
         $( "#newtweet" ).focus();
