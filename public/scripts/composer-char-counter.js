@@ -1,5 +1,8 @@
 
 
+//simple function that is called when the doc is ready
+//counts characters from the textarea as the user types moving to RED if the count > 140 char
+
 $(document).ready(function() {
 
   $(".container textarea").keyup( function() {

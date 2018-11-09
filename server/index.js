@@ -14,6 +14,7 @@ app.use(express.static("public"));
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
+//function to connect to the mongdoDB returns a console.log if connection is successful
 MongoClient.connect(MONGODB_URI, (err, db) => {
   if (err) {
     console.error(`Failed to connect: ${MONGODB_URI}`);
@@ -22,19 +23,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   console.log(`Connected to mongodb way to go Keith: ${MONGODB_URI}`);
 
 
-// app.use(function (req, res, next) {
-//   console.log(req.body);
-//   next();
-// })
-
-// The in-memory database of tweets. Ilst's a basic object with an array in it.
-// const db = require("./lib/in-memory-db");
-
-// The `data-helpers` module provides an interface to the database of tweets.
-// This simple interface layer has a big benefit: we could switch out the
-// actual database it uses and see little to no changes elsewhere in the code
-// (hint hint).
-//
 // Because it exports a function that expects the `db` as a parameter, we can
 // require it and pass the `db` parameter immediately:
 const DataHelpers = require("./lib/data-helpers.js")(db);
