@@ -14,5 +14,5 @@ Users are provided a display of historical tweets that have been made via testin
 
 ## File Structure
 
-Screenshot on inital page load:
+Screenshot when user provides no text in text area:
 ![alt text](public/screenshots/blanktweet.png "homepage for user not logged in")
