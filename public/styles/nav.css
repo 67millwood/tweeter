@@ -25,6 +25,10 @@
 #nav-bar button {
   opacity: 0.5;
   float: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  font-size: 1.5em;
 }
 
 #nav-bar button:hover {
