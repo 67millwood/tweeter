@@ -13,6 +13,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
-- one sentence
+  - body-parser": "^1.18.3",
+  - chance": "^1.0.16",
+  - express": "^4.16.4",
+  - md5": "^2.2.1",
+  - mongodb": "^2.2.36"
