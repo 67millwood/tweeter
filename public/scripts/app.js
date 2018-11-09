@@ -49,7 +49,10 @@ $(document).ready(function() {
        }
 
     //publishes tweets from data set and appends them to the main page (.container)
-    function renderTweets(tweets) {
+    function renderTweets(data) {
+      console.log("we reached renderTweets")
+      let tweets = data[0].tweets;
+      console.log(Object.keys(data))
       for (num of tweets) {
         // console.log(num);
         var $tweet = createTweetElement(num);
@@ -100,7 +103,7 @@ $(document).ready(function() {
     function loadTweets() {
       $.getJSON("/tweets", function(data) {
         // $('.freshtweets').empty();
-        // console.log("fresh tweets", data)
+        console.log("fresh tweets", data)
         renderTweets(data)
       });
     };
