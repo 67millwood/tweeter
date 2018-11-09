@@ -14,5 +14,14 @@ Users are provided a display of historical tweets that have been made via testin
 
 ## File Structure
 
+Homescreen:
+![alt text](public/screenshots/homepage.png)
+
 Screenshot when user provides no text in text area:
-![alt text](public/screenshots/blanktweet.png "homepage for user not logged in")
+![alt text](public/screenshots/blanktweet.png)
+
+Screenshot when user provides text > 140 char:
+![alt text](public/screenshots/longtweet.png)
+
+Screenshot after user presses compose:
+![alt text](public/screenshots/readyfortweet.png)
