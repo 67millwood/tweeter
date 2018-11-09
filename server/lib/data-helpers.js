@@ -10,7 +10,6 @@ module.exports = function makeDataHelpers(db) {
     // Saves a tweet to `db`
     saveTweet: function(newTweet, callback) {
 
-        // db.tweets.push(newTweet);
         db.collection("tweeter").insertOne( newTweet );
         callback(null, true);
     },
@@ -24,9 +23,6 @@ module.exports = function makeDataHelpers(db) {
         });
         }
 
-  // ==> Later it can be invoked. Remember even if you pass
-  //     `getTweets` to another scope, it still has closure over
-  //     `db`, so it will still work. Yay!
   }
 }
 

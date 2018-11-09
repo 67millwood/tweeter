@@ -55,9 +55,8 @@ $(document).ready(function() {
     //calls the createTweetElement function which provides the necessary HTML/CSS tags for each tweet
     function renderTweets(data) {
       console.log("we reached renderTweets")
-      let tweets = data[0].tweets;
       console.log(Object.keys(data))
-      for (num of tweets) {
+      for (num of data) {
         // console.log(num);
         var $tweet = createTweetElement(num);
         $('.freshtweets').append($tweet);
