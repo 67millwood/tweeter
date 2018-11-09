@@ -15,4 +15,4 @@ Users are provided a display of historical tweets that have been made via testin
 ## File Structure
 
 Screenshot on inital page load:
-![alt text](screenshots/blanktweet.png "homepage for user not logged in")
+![alt text](public/screenshots/blanktweet.png "homepage for user not logged in")
