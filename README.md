@@ -46,9 +46,11 @@ Ready for tweet:
 ![alt text](public/screenshots/readyfortweet.png)
 
 User attempts to tweet with no text:
+
 ![alt text](public/screenshots/blanktweet.png)
 
 User attempts to tweet with more than 140 characters:
+
 ![alt text](public/screenshots/longtweet.png)
 
 
