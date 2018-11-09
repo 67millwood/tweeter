@@ -45,7 +45,6 @@ $(document).ready(function() {
     // then prepends to the .freshtweet class to make it appear at the top of all loaded tweets
      function publishNewTweet () {
       $.getJSON("/tweets/", function(data) {
-        console.log(data);
         var $happy = createTweetElement(data.slice(-1)[0]);
         $('.freshtweets').prepend($happy);
           })
@@ -54,12 +53,10 @@ $(document).ready(function() {
     //publishes tweets from database by looping through the JSON provided
     //calls the createTweetElement function which provides the necessary HTML/CSS tags for each tweet
     function renderTweets(data) {
-      console.log("we reached renderTweets")
-      console.log(Object.keys(data))
       for (num of data) {
         // console.log(num);
         var $tweet = createTweetElement(num);
-        $('.freshtweets').append($tweet);
+        $('.freshtweets').prepend($tweet);
       }
     }
 
@@ -108,8 +105,6 @@ $(document).ready(function() {
     //GET tweets from mongoDB converts into JSON then call renderTweets to display them to the user
     function loadTweets() {
       $.getJSON("/tweets", function(data) {
-        // $('.freshtweets').empty();
-        console.log("fresh tweets", data)
         renderTweets(data)
       });
     };

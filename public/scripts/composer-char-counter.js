@@ -1,7 +1,6 @@
 
 
 $(document).ready(function() {
-  console.log("the page has loaded")
 
   $(".container textarea").keyup( function() {
   let count = $(this).val().length;
@@ -11,9 +10,6 @@ $(document).ready(function() {
     $(this).parent().find(".counter").text(140 - count);
   }
 
-  // $("#pubtweets").hover( function () {
-  //   $("#pubtweets").css({"opacity": 0.5})
-  // } );
 
 });
 });
