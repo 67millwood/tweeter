@@ -12,6 +12,19 @@ Users are provided a display of historical tweets that have been made via testin
   - md5": "^2.2.1",
   - mongodb": "^2.2.36"
 
+## Functionality
+
+The user clicks the 'Compose' button in the top right which reveals a form field.  User can type up to 140 characters as a counter in the bottom right decrements towards zero while they time and increments if they delete characters.  If the form field exceeds 140 characters the counter moves past zero to negative numbers and the counter color changes color to red.
+
+There are two error messages possible:
+- Blank field: error message warns user that they cannot submit a blank tweet and nothing is submitted to database
+- Greater than 140 characters: error message warns user that tweet is too large and nothing is submitted to database
+
+A succesful tweet submission immediately:
+- publishes the tweet below the form
+- empties the text entry field
+- resets the counter to 140
+
 ## File Structure
 
 <ul>
