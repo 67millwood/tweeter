@@ -10,7 +10,7 @@ $(document).ready(function() {
   if (140 < count) {
     $(this).parent().find(".counter").text(140 - count).css({"color": "red"});
   } else {
-    $(this).parent().find(".counter").text(140 - count);
+    $(this).parent().find(".counter").text(140 - count).css({"color": "black"});
   }
 
 

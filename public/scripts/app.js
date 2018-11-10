@@ -39,6 +39,8 @@ $(document).ready(function() {
     // publishes new tweets by taking the most recent item (last) from the JSON array
     // then prepends to the .freshtweet class to make it appear at the top of all loaded tweets
      function publishNewTweet () {
+      document.querySelector("form").reset();
+      document.querySelector(".counter").innerHTML = 140;
       $.getJSON("/tweets/", function(data) {
         var $happy = createTweetElement(data.slice(-1)[0]);
         $('.freshtweets').prepend($happy);
