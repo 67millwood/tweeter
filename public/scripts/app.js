@@ -79,9 +79,9 @@ $(document).ready(function() {
             </span>
             <footer id="tweet-foot">
               ${Math.round(((dateDiff() - data.created_at) / (1000*60*60*24)))} days ago
-              <img class="icons" src="/images/flag.png">
-              <img class="icons" src="/images/retweet.png">
-              <img class="icons" src="/images/heart.jpg">
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-share"></i>
             </footer>
 
             </article>

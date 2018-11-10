@@ -94,7 +94,7 @@ body {
     opacity: 1.0;
   }
 
-.container #pubtweets:hover .icons{
+.container #pubtweets:hover .fas{
   display: inline;
   float: right;
 
@@ -127,7 +127,7 @@ font-size: 0.75em;
   font-size: 0.75em;
 }
 
-.icons {
+#tweet-foot .fas {
   display: none;
 }
 
